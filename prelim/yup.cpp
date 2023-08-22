@@ -34,7 +34,6 @@ int main()
     for (a = 0; a < 3; a++)
         if (n[a] == s){
             cout << "Found in Array\n";
-            cout << a;
             break;
             }
         if (a == 3){
