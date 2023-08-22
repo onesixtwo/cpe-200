@@ -33,12 +33,12 @@ int main()
     
     for (a = 0; a < 3; a++)
         if (n[a] == s){
-            cout << " yes ";
+            cout << "Found in Array";
             cout << a;
             break;
             }
         if (a == 3){
-            cout << " no ";
+            cout << "Not Found in Array";
         }
 
 }
