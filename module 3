@@ -1,0 +1,60 @@
+#Create a singly Linked List with 10 elements using C++ or Python.
+
+class Node:
+    def __init__(self,dataval = None):
+        self.dataval = dataval
+        self.nextval = None
+        
+class SLinkedlist:
+    def __init__(self):
+        self.headval = None
+        
+    def listprint(self):
+        printval=self.headval
+        while printval is not None:
+            print(printval.dataval)
+            printval=printval.nextval
+
+
+list = SLinkedlist()
+
+list.headval=Node("gal gadot")
+
+e2=Node("amber heard")
+
+list.headval.nextval=e2
+
+e3 = Node ("scarllet johansson")
+
+e2.nextval=e3
+
+e4 = Node ("elizabeth olsen")
+
+e3.nextval=e4
+
+e5 = Node ("5")
+
+e4.nextval=e5
+
+e6 = Node ("6")
+
+e5.nextval=e6
+
+e7 = Node ("7")
+
+e6.nextval=e7
+
+e8 = Node ("8")
+
+e7.nextval=e8
+
+e9 = Node ("9")
+
+e8.nextval=e9
+
+e10 = Node ("10")
+
+e9.nextval=e10
+
+list.listprint()
+
