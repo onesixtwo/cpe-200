@@ -1,0 +1,43 @@
+//The Program will perform the enqueue (2 times) , dequeue and front operations.
+#include <iostream>
+#include <queue>
+using namespace std;
+
+
+void show(queue<int>gq)
+{
+    queue <int> g = gq;
+    while (!g.empty())
+    {
+        cout << " " << g.front();
+        g.pop();
+    }
+}
+
+int main()
+{
+    
+    queue<int> gquiz;
+    
+    gquiz.push(10);
+    gquiz.push(20);
+    
+    show(gquiz);
+    cout << "\nQueue size: " << gquiz.size()<< "\n";
+    cout << "\nDequeue\n";
+    
+    gquiz.pop();
+    
+    cout << "\nQueue size: " << gquiz.size();
+    cout << "\nQueue front: " << gquiz.front();
+    cout << "\nElements of queue:";
+    show(gquiz);
+    
+    return 0;
+    
+    
+    
+    
+    
+    
+}
