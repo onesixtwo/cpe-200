@@ -17,21 +17,22 @@ void show(queue<int>gq)
 int main()
 {
     
-    queue<int> gquiz;
+    queue<int> q;
     
-    gquiz.push(10);
-    gquiz.push(20);
+    q.push(1);
+    q.push(2);
     
-    show(gquiz);
-    cout << "\nQueue size: " << gquiz.size()<< "\n";
+    cout << "\nElements of queue:";
+    show(q);
+    cout << "\nQueue size: " << q.size()<< "\n";
     cout << "\nDequeue\n";
     
-    gquiz.pop();
+    q.pop();
     
-    cout << "\nQueue size: " << gquiz.size();
-    cout << "\nQueue front: " << gquiz.front();
+    cout << "\nQueue size: " << q.size();
+    cout << "\nQueue front: " << q.front();
     cout << "\nElements of queue:";
-    show(gquiz);
+    show(q);
     
     return 0;
     
