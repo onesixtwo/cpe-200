@@ -15,9 +15,9 @@ using namespace std;
 
 class Node {
 public:
-    int dataval;  // Corrected data type to 'int'
+    int dataval; 
     Node* nextval;
-    Node(int dataval = 0) {  // Added int parameter and default value
+    Node(int dataval = 0) { 
         this->dataval = dataval;
         this->nextval = nullptr;
     }
