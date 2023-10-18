@@ -26,7 +26,7 @@ int main()
       }
       swap(num[a],num[sm2]);
     }
-    cout << "Selection sorted array: \n";
+    cout << "array: \n";
     for (a = 0; a < 5; a++)
         cout << num[a] << "\t";
     cout << endl;

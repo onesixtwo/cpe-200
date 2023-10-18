@@ -23,7 +23,7 @@ int main()
          num[b+1] = c;
       }
 
-      cout << "insertion sorter array: \n";
+      cout << "array: \n";
       for (a = 0; a < 5; a++)
          cout << num[a] << "\t";
       cout << endl;

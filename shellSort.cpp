@@ -28,7 +28,7 @@ int main()
       e /= 2;
    }
    
-   cout << "shell sorted array: \n";
+   cout << "array: \n";
    for (a = 0; a < 5; a++)
       cout << num4[a] << "\t";
    cout << endl;
