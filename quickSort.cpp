@@ -3,54 +3,51 @@ using namespace std;
 
 int main()
 {
-    int a, b, c, d;
+    int a, b, c, d, e, f;
     int num[5] = {4, 1, 5, 2, 3};
-    
+    int temp2[5]; 
+    int y = -1;
+
     cout << "array: ";
-    
     for (a = 0; a < 5; a++)
         cout << num[a] << "\t";
     cout << endl;
 
-    int stack[5]; 
-    int top = -1;
+    temp2[++y] = 0;
+    temp2[++y] = 4;
 
-    stack[++top] = 0;
-    stack[++top] = 4;
-
-    while (top >= 0) {
-        int high = stack[top--];
-        int low = stack[top--];
+    while (y >= 0) {
+        a = temp2[y--];
+        b = temp2[y--];
         
-        int pivot = num[high];
-        int i = (low - 1);
+        c = num[a];
+        d = (b - 1);
 
-        for (int j = low; j <= high - 1; j++) {
-            if (num[j] < pivot) {
-                i++;
-                c = num[i];
-                num[i] = num[j];
-                num[j] = c;
+        for (e = b; e <= a - 1; e++) {
+            if (num[e] < c) {
+                d++;
+                c = num[d];
+                num[d] = num[e];
+                num[e] = c;
             }
         }
 
-        c = num[i + 1];
-        num[i + 1] = num[high];
-        num[high] = c;
+        c = num[d + 1];
+        num[d + 1] = num[a];
+        num[a] = c;
 
-        if (i - 1 > low) {
-            stack[++top] = low;
-            stack[++top] = i - 1;
+        if (d - 1 > b) {
+            temp2[++y] = b;
+            temp2[++y] = d - 1;
         }
 
-        if (i + 1 < high) {
-            stack[++top] = i + 1;
-            stack[++top] = high;
+        if (d + 1 < a) {
+            temp2[++y] = d + 1;
+            temp2[++y] = a;
         }
     }
 
     cout << "array: ";
-    
     for (a = 0; a < 5; a++)
         cout << num[a] << "\t";
     cout << endl;

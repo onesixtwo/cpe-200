@@ -3,24 +3,23 @@ using namespace std;
 
 int main()
 {
-   int a, b, d, e, f, g, h, i;
+   int a, b, c, d, e, f, g, h, i;
    int num[5] = {4, 1, 5, 2, 3};
    int temp[5];
-   int c = 1;
-   cout << "array: \n";
-
+   int z = 1;
+   
+   cout << "array: ";
    for (a = 0; a < 5; a++)
       cout << num[a] << "\t";
    cout << endl;
 
-    
-   while (c < 5)
+   while (z < 5)
    {
-      for (a = 0; a < 5; a += 2 * c)
+      for (a = 0; a < 5; a += 2 * z)
       {
          d = a;
-         e = a + c;
-         f = a + 2 * c;
+         e = a + z;
+         f = a + 2 * z;
 
          if (e > 5)
             e = 5;
@@ -48,10 +47,10 @@ int main()
       for (a = 0; a < 5; a++)
          num[a] = temp[a];
 
-      c *= 2;
+      z *= 2;
    }
 
-   cout << "array: \n";
+   cout << "array: ";
    for (a = 0; a < 5; a++)
       cout << num[a] << "\t";
    cout << endl;

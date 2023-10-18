@@ -7,7 +7,7 @@ int main()
     int a,b,c,d,e;
     int num[5] = {4, 1, 5, 2, 3};
     
-    cout << "array: \n";
+    cout << "array: ";
     for (a = 0; a < 5; a++)
         cout << num[a] << "\t";
     cout << endl;
@@ -26,7 +26,7 @@ int main()
       }
       swap(num[a],num[sm2]);
     }
-    cout << "array: \n";
+    cout << "array: ";
     for (a = 0; a < 5; a++)
         cout << num[a] << "\t";
     cout << endl;

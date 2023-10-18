@@ -4,11 +4,11 @@ using namespace std;
 int main()
 {
    int a,b,c,d,e,f,g,h,i;
-   int num4[5] = {4, 1, 5, 2, 3};
+   int num[5] = {4, 1, 5, 2, 3};
 
-   cout << "array: \n";
+   cout << "array: ";
    for (a = 0; a < 5; a++)
-      cout << num4[a] << "\t";
+      cout << num[a] << "\t";
    cout << endl;
 
    e = 5 / 2;
@@ -16,21 +16,21 @@ int main()
    {
       for (f = e; f < 5; f++)
       {
-         c = num4[f];
+         c = num[f];
          g = f;
-         while (g >= e && num4[g - e] > c)
+         while (g >= e && num[g - e] > c)
          {
-            num4[g] = num4[g - e];
+            num[g] = num[g - e];
             g = g - e;
          }
-         num4[g] = c;
+         num[g] = c;
       }
       e /= 2;
    }
    
-   cout << "array: \n";
+   cout << "array: ";
    for (a = 0; a < 5; a++)
-      cout << num4[a] << "\t";
+      cout << num[a] << "\t";
    cout << endl;
 
 }
