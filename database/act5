@@ -1,0 +1,100 @@
+create database Lab_5_2023A_Vargas_HealthAndWellnessApplication
+
+create table users
+(
+userID int not null,
+Name varchar(100),
+Age int(3),
+Gender varchar(30),
+Email varchar(100),
+PRIMARY KEY (userID)
+);
+
+insert into users (userID, Name, Age, Gender, Email) values (1, "jake", 23, "male", "jake@gmail.com");
+insert into users (userID, Name, Age, Gender, Email) values (2, "mike", 23, "male", "mike@gmail.com");
+insert into users (userID, Name, Age, Gender, Email) values (3, "aya", 23, "female", "aya@gmail.com");
+insert into users (userID, Name, Age, Gender, Email) values (4, "lara", 23, "female", "lara@gmail.com");
+insert into users (userID, Name, Age, Gender, Email) values (5, "darlyne", 23, "female", "darlyne@gmail.com");
+
+create table activities
+(
+activityID int not null,
+name varchar(100),
+category varchar(50),
+description varchar(500),
+calories_burned int(50),
+PRIMARY KEY (activityID)
+);
+
+insert into activities (activityID, name, category, description, calories_burned ) values (1, "bball", "sports", "coolsports", 123);
+insert into activities (activityID, name, category, description, calories_burned ) values (2, "bball", "sports", "coolsports", 123);
+insert into activities (activityID, name, category, description, calories_burned ) values (3, "bball", "sports", "coolsports", 123);
+insert into activities (activityID, name, category, description, calories_burned ) values (4, "bball", "sports", "coolsports", 123);
+insert into activities (activityID, name, category, description, calories_burned ) values (5, "bball", "sports", "coolsports", 123);
+
+create table userActivities
+(
+userActID int not null,
+userID int not null,
+activityID int not null,
+date date,
+duration time,
+PRIMARY KEY (userActID),
+INDEX fk_userActivities_users(userID asc),
+INDEX fk_userActivities_activities(activityID asc),
+CONSTRAINT fk_userActivities_users
+FOREIGN KEY (userID)
+REFERENCES users(userID),
+CONSTRAINT fk_userActivities_activities
+FOREIGN KEY (activityID)
+REFERENCES activities(activityID)
+);
+
+insert into userActivities (userActID,userID,activityID,date,duration) values (1, 1, 1, '2023-12-06', '11:11:11');
+insert into userActivities (userActID,userID,activityID,date,duration) values (2, 2, 2, '2023-12-06', '11:11:11');
+insert into userActivities (userActID,userID,activityID,date,duration) values (3, 3, 3, '2023-12-06', '11:11:11');
+insert into userActivities (userActID,userID,activityID,date,duration) values (4, 4, 4, '2023-12-06', '11:11:11');
+insert into userActivities (userActID,userID,activityID,date,duration) values (5, 5, 5, '2023-12-06', '11:11:11');
+
+create table goals
+(
+goalID int not null,
+userID int not null,
+description varchar(500),
+targetDate date,
+status varchar(50),
+PRIMARY KEY (goalID),
+INDEX fk_goals_users(userID asc),
+CONSTRAINT fk_goals_users
+FOREIGN KEY (userID)
+REFERENCES users(userID)
+);
+
+insert into goals (goalID, userID, description, targetDate, status) values (1, 1, "good", '2023-12-12', 'good');
+insert into goals (goalID, userID, description, targetDate, status) values (2, 2, "good", '2023-12-12', 'good');
+insert into goals (goalID, userID, description, targetDate, status) values (3, 3, "good", '2023-12-12', 'good');
+insert into goals (goalID, userID, description, targetDate, status) values (4, 4, "good", '2023-12-12', 'good');
+insert into goals (goalID, userID, description, targetDate, status) values (5, 5, "good", '2023-12-12', 'good');
+
+create table nutrition
+(
+nutritionID int not null,
+userID int not null,
+date date,
+food varchar(500),
+calories int(50),
+category varchar(500),
+PRIMARY KEY (nutritionID),
+INDEX fk_nutrition_users(userID asc),
+CONSTRAINT fk_nutrition_users
+FOREIGN KEY (userID)
+REFERENCES users(userID)
+);
+
+insert into nutrition (nutritionID, userID, date, food, calories, category) values (1, 1, '2023-12-12', 'cake', 123, 'good');
+insert into nutrition (nutritionID, userID, date, food, calories, category) values (2, 2, '2023-12-12', 'cake', 123, 'good');
+insert into nutrition (nutritionID, userID, date, food, calories, category) values (3, 3, '2023-12-12', 'cake', 123, 'good');
+insert into nutrition (nutritionID, userID, date, food, calories, category) values (4, 4, '2023-12-12', 'cake', 123, 'good');
+insert into nutrition (nutritionID, userID, date, food, calories, category) values (5, 5, '2023-12-12', 'cake', 123, 'good');
+
+

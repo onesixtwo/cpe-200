@@ -1,0 +1,95 @@
+CREATE TABLE location 
+(
+locationID int not null,
+locationName varchar(50),
+description varchar(500),
+latitude varchar(25),
+longitude varchar(25),
+admission_fee_cents float(10),
+tour_discount_pct int null,
+PRIMARY KEY (LocationID),
+UNIQUE (locationName)
+);
+
+
+CREATE TABLE coffee 
+(
+coffeeID int not null,
+coffeeName varchar(50),
+PRIMARY KEY (coffeeID),
+UNIQUE (coffeeName)
+);
+
+
+CREATE TABLE itinerary
+(
+tourID int not null,
+locationID int not null,
+stop_order varchar(25),
+PRIMARY KEY (tourID, stop_order),
+INDEX fk_itinerary_location(locationID asc),
+CONSTRAINT fk_itinerary_location
+FOREIGN KEY (locationID)
+REFERENCES location(locationID)
+);
+
+
+CREATE TABLE theme
+(
+themeID int not null,
+coffeeID int null,
+themeName varchar(50),
+inclusive_price_cents float(25) null,
+PRIMARY KEY (themeID),
+UNIQUE (themeName),
+INDEX fk_theme_coffee(coffeeID asc),
+CONSTRAINT fk_theme_coffee
+FOREIGN KEY (coffeeID)
+REFERENCES coffee(coffeeID)
+);
+
+
+CREATE TABLE coffeeMenu 
+(
+locationID int not null,
+coffeeID int not null,
+price_cents float(25),
+PRIMARY KEY (coffeeID),
+INDEX fk_coffeeMenu_location(locationID asc),
+CONSTRAINT fk_coffeeMenu_location
+FOREIGN KEY (locationID)
+REFERENCES location(locationID)
+);
+
+
+CREATE TABLE tour
+(
+tourID int not null,
+themeID int not null,
+tour_date DATE,
+begin_time TIME,
+duration TIME,
+capacity int(50),
+is_adult_only BOOL,
+price_cents float(25),
+PRIMARY KEY (tourID),
+UNIQUE (tour_date, themeID),
+INDEX fk_tour_theme(themeID asc),
+CONSTRAINT fk_tour_theme
+FOREIGN KEY (themeID)
+REFERENCES theme(themeID)
+);
+
+
+CREATE TABLE customer
+(
+customerID int not null,
+tourID int not null,
+customerName varchar(50),
+is_child BOOL,
+PRIMARY KEY (customerID),
+INDEX fk_customer_tour(tourID asc),
+CONSTRAINT fk_customer_tour
+FOREIGN KEY (tourID)
+REFERENCES tour(tourID)
+);
