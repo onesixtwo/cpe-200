@@ -1,0 +1,62 @@
+
+create table PROG
+(
+PROG_PROG_ID int not null,
+PROG_DESC varchar(50),
+PRIMARY KEY(PROG_PROG_ID)
+);
+
+
+insert into PROG values (1,'CPE');
+insert into PROG values (2,'EEE');
+insert into PROG values (3,'CE');
+
+
+
+create table SCHOOL
+(
+SCHOOL_SCH_ID int not null,
+SCH_NAME varchar(100),
+PRIMARY KEY(SCHOOL_SCH_ID)
+);
+
+insert into SCHOOL values (1,'TIPMLA');
+insert into SCHOOL values (2,'TIPQC');
+insert into SCHOOL values (3,'TIPLAGUNA');
+ 
+
+
+create table STUDENT
+(
+STUD_ID int not null,
+STUD_FN varchar(100),
+STUD_LN varchar(100),
+PROG_PROG_ID int not null,
+SCHOOL_SCH_ID int not null,
+PRIMARY KEY (STUD_ID),
+INDEX fk_STUDENT_PROG(PROG_PROG_ID asc),
+INDEX fk_STUDENT_SCHOOL(SCHOOL_SCH_ID asc),
+CONSTRAINT fk_STUDENT_PROG
+FOREIGN KEY(PROG_PROG_ID)
+REFERENCES PROG(PROG_PROG_ID),
+CONSTRAINT fk_STUDENT_SCHOOL
+FOREIGN KEY(SCHOOL_SCH_ID)
+REFERENCES SCHOOL(SCHOOL_SCH_ID)
+);
+
+
+insert into STUDENT values (303,'mark','alday',1,1);
+insert into STUDENT values (544,'michael','castro',1,2);
+insert into STUDENT values (567,'jeric','cruz',1,2);
+insert into STUDENT values (321,'jeric','cruz',3,2);
+insert into STUDENT values (563,'mae','De Guzman',2,2);
+insert into STUDENT values (235,'Kevin','Falcon',3,3);
+insert into STUDENT values (309,'Jam','Gabion',1,1);
+insert into STUDENT values (654,'Kevin','Gascon',3,1);
+insert into STUDENT values (787,'Rhea','Hernandez',3,3);
+insert into STUDENT values (720,'Miko','Lipayon',1,1);
+insert into STUDENT values (302,'Dave',"Oliva",1,1);
+insert into STUDENT values (453,'Joseph','Zabala',2,3);
+insert into STUDENT values (987,'Mark','Zabala',1,3);
+
+
