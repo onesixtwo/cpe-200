@@ -1,0 +1,31 @@
+CREATE DATABASE parkingdaw;
+
+CREATE TABLE parkslots
+(
+   slotNo int,
+   status int,
+   structure ENUM('F1S1-12','F1S13-24','F1S25-36','F1M1-5','F1M6-10'),
+   PRIMARY KEY (slotNo)
+);
+
+CREATE TABLE payment
+(
+   recieptNo int AUTO_INCREMENT,
+   slotNo int,
+   date DATE,
+   PRIMARY KEY (recieptNo),
+   INDEX fk_payment_parkslots(slotNo asc),
+   CONSTRAINT fk_payment_parkslots
+   FOREIGN KEY (slotNo)
+   REFERENCES parkslots (slotNo)
+);
+
+CREATE TABLE users
+(
+   id int AUTO_INCREMENT,
+   Name varchar(100),
+   username varchar(100),
+   password varchar(100),
+   role ENUM('admin','regular'),
+   PRIMARY KEY (id)
+);
